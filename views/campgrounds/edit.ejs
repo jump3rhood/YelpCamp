@@ -1,32 +1,36 @@
 
 <% layout('layouts/boilerplate') %> 
 <h1>Edit the <%= campground.title %>  </h1>
-    <form action="/campgrounds/<%=campground._id%>?_method=PUT" method="POST">
+    <form action="/campgrounds/<%=campground._id%>?_method=PUT" method="POST" novalidate class="validated-form">
         <div class="mb-3">
             <label class="form-label" for="title">Title:</label>
-            <input class="form-control" id="title" type="text" name="campground[title]" value="<%=campground.title%>">
+            <input class="form-control" id="title" type="text" name="campground[title]"  required value="<%=campground.title%>">
         </div>
+        <div class="valid-feedback">Looks good!</div>
         <div class="mb-3">
             <label class="form-label" for="location">Location</label>
-            <input class="form-control" id="location" type="text" name="campground[location]"value="<%=campground.location%>">
+            <input class="form-control" id="location" type="text" name="campground[location]" required value="<%=campground.location%>">
+            <div class="valid-feedback">Looks good!</div>
         </div>
         <div class="mb-3">
             <label class="form-label" for="image">Image Url</label>
-            <input class="form-control" id="image" type="text" name="campground[image]" value="<%=campground.image%>">
+            <input class="form-control" id="image" type="text" name="campground[image]" required value="<%=campground.image%>">
         </div>
+        <div class="valid-feedback">Looks good!</div>
         <div class="mb-3">
             <label class="form-label" for="price">Campground Price</label>
             <div class="input-group mb-3">
                 <span class="input-group-text" id="price-label">$</span>
-                <input type="text" class="form-control" id="price" aria-label="Username" aria-describedby="price-label" placeholder="0.00" name="campground[price]" value="<%=campground.price%>">
+                <input type="text" class="form-control" id="price" aria-label="Username" aria-describedby="price-label" placeholder="0.00" name="campground[price]" required value="<%=campground.price%>">
+                <div class="valid-feedback">Looks good!</div>
             </div>
         </div>
         
         <div class="mb-3">
             <label class="form-label"  for="description">Description</label>
-            <textarea class="form-control" id="description" type="text" name="campground[description]">
-                <%=campground.description%>
-            </textarea>
+<textarea class="form-control" id="description" type="text" name="campground[description]" required><%=campground.description%></textarea>                
+            <div class="valid-feedback">Looks good!</div>
+
         </div>
 
         <div class="mb-3">
